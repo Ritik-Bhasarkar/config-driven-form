@@ -1,0 +1,19 @@
+.fieldItem {
+  grid-column: span 1;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .colSpan2 {
+    grid-column: span 2;
+  }
+
+  .desktopCol1 {
+    grid-column: 1 / 2;
+  }
+
+  .desktopCol2 {
+    grid-column: 2 / 3;
+  }
+}
+

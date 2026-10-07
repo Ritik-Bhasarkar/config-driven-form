@@ -1,0 +1,62 @@
+.formCard {
+	width: 100%;
+	max-width: 48rem;
+	margin: 0 auto;
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-border-default);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.cardHeader {
+	padding: var(--space-6) var(--space-6) var(--space-4);
+	border-bottom: 1px solid var(--color-border-default);
+}
+
+.cardTitle {
+	margin: 0 0 var(--space-1);
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-2xl);
+	font-weight: var(--font-weight-semibold);
+	color: var(--color-text-primary);
+	line-height: var(--line-height-tight);
+}
+
+.cardSubtitle {
+	margin: 0;
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-sm);
+	color: var(--color-text-secondary);
+	line-height: var(--line-height-normal);
+}
+
+.formBody {
+	padding: var(--space-6);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-6);
+}
+
+.formGrid {
+	display: grid;
+	grid-template-columns: 1fr;
+	row-gap: var(--space-5);
+	column-gap: var(--space-6);
+	width: 100%;
+	box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+	.formGrid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.formActions {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding-top: var(--space-4);
+	border-top: 1px solid var(--color-border-default);
+}
