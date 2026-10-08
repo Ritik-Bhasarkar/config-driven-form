@@ -1,5 +1,19 @@
 @import './design-system/tokens/tokens.css';
 
+.app {
+	min-height: 100vh;
+	display: flex;
+	align-items: safe center;
+	justify-content: safe center;
+	padding: var(--page-padding-mobile);
+}
+
+@media (min-width: 1024px) {
+	.app {
+		padding: var(--page-padding-desktop);
+	}
+}
+
 * {
   box-sizing: border-box;
 }

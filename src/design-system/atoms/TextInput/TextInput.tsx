@@ -35,7 +35,7 @@ export const TextInput: React.FC<TextInputProps> = ({
       placeholder={placeholder}
       disabled={disabled}
       aria-invalid={isInvalid}
-      className={`textInput ${isInvalid ? 'textInput--invalid' : ''}`.trim()}
+			className={`text-input ${isInvalid ? 'text-input--invalid' : ''}`.trim()}
     />
   );
 };

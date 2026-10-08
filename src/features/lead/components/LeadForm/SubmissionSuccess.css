@@ -1,0 +1,106 @@
+.success-screen {
+	width: 100%;
+	min-height: min(80vh, 48rem);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	padding: clamp(var(--space-6), 5vw, var(--space-8));
+	text-align: center;
+}
+
+.success-screen__mark {
+	width: 72px;
+	height: 72px;
+	display: grid;
+	place-items: center;
+	margin-bottom: var(--space-6);
+	color: var(--color-success);
+	background: var(--color-success-bg);
+	border: 1px solid var(--color-success);
+	border-radius: var(--radius-full);
+	font-size: var(--font-size-2xl);
+	font-weight: var(--font-weight-semibold);
+}
+
+.success-screen__title {
+	margin: 0 0 var(--space-5);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-bold);
+	line-height: var(--line-height-tight);
+}
+
+.success-screen__message {
+	max-width: 48rem;
+	margin: 0 0 var(--space-6);
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-lg);
+}
+
+.success-screen__summary {
+	width: 100%;
+	max-width: 72rem;
+	margin-bottom: var(--space-6);
+	padding: var(--space-5);
+	text-align: left;
+	background: var(--color-bg-canvas);
+	border: 1px solid var(--color-border-hover);
+	border-radius: var(--radius-md);
+}
+
+.success-screen__summary-title {
+	margin: 0 0 var(--space-4);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.submission-summary {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--space-4) var(--space-6);
+	margin: 0;
+}
+
+.submission-summary__row dt {
+	margin-bottom: var(--space-1);
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-sm);
+}
+
+.submission-summary__row dd {
+	margin: 0;
+	font-size: var(--font-size-base);
+	overflow-wrap: anywhere;
+}
+
+@media (max-width: 1023px) {
+	.success-screen {
+		min-height: 0;
+		padding: var(--space-5);
+	}
+
+	.success-screen__mark {
+		margin-bottom: var(--space-4);
+	}
+
+	.success-screen__title {
+		margin-bottom: var(--space-3);
+		font-size: var(--font-size-lg);
+	}
+
+	.success-screen__message {
+		font-size: var(--font-size-base);
+	}
+
+	.success-screen__summary {
+		padding: var(--space-4);
+	}
+
+	.submission-summary {
+		grid-template-columns: 1fr;
+		gap: var(--space-3);
+	}
+}

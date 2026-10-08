@@ -1,0 +1,10 @@
+.form-card {
+	width: 100%;
+	max-width: 48rem;
+	margin: 0 auto;
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-border-default);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	box-sizing: border-box;
+}

@@ -3,6 +3,7 @@ import index from "./index.html";
 
 const server = serve({
   routes: {
+    "/assets/*": { dir: "./public/assets" },
     // Serve index.html for all unmatched routes.
     "/*": index,
 

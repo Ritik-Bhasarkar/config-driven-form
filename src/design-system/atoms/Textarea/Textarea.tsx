@@ -9,7 +9,6 @@ export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextArea
 	onBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
 	isInvalid?: boolean;
 	showCharacterCount?: boolean;
-	className?: string;
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
@@ -23,7 +22,6 @@ export const Textarea: React.FC<TextareaProps> = ({
 	isInvalid = false,
 	showCharacterCount = false,
 	maxLength,
-	className = "",
 	...rest
 }) => {
 	return (
@@ -36,16 +34,20 @@ export const Textarea: React.FC<TextareaProps> = ({
 				onBlur={onBlur}
 				placeholder={placeholder}
 				disabled={disabled}
-				maxLength={maxLength}
 				aria-invalid={isInvalid}
 				className={`textarea--control ${
 					isInvalid ? "textarea--invalid" : ""
-				} ${className}`.trim()}
+				}`}
 				{...rest}
 			/>
 
 			{showCharacterCount && maxLength !== undefined && (
-				<span className="textarea--counter">
+				<span
+					className={`textarea--counter ${
+						value.length > maxLength
+							? "textarea--counter-exceeded"
+							: ""
+					}`.trim()}>
 					{value.length}/{maxLength}
 				</span>
 			)}

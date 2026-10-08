@@ -23,6 +23,8 @@ export interface LeadFieldConfig {
 	name: keyof LeadFormValues;
 	type: FieldType;
 	label: string;
+	summaryLabel?: string;
+	optional?: boolean;
 	placeholder?: string;
 	hint?: string;
 	options?: SelectOption[];
@@ -59,6 +61,7 @@ export const leadFormConfig: LeadFieldConfig[] = [
 		name: "email",
 		type: "email",
 		label: "Work Email",
+		summaryLabel: "Email Address",
 		placeholder: "jane@company.com",
 		validations: {
 			required: true,
@@ -117,6 +120,7 @@ export const leadFormConfig: LeadFieldConfig[] = [
 		name: "notes",
 		type: "textarea",
 		label: "Additional Notes",
+		optional: true,
 		placeholder: "Tell us more about your project or inquiry...",
 		hint: "Maximum 200 characters",
 		validations: {
@@ -129,6 +133,7 @@ export const leadFormConfig: LeadFieldConfig[] = [
 		name: "consent",
 		type: "checkbox",
 		label: "I agree to the terms of service and consent to being contacted regarding this inquiry.",
+		summaryLabel: "Consent Given",
 		validations: {
 			required: true,
 		},

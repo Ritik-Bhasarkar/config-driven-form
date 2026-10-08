@@ -1,11 +1,11 @@
 import React from "react";
 
 import { Checkbox, Field, Select, Textarea, TextInput } from "@/design-system";
-
 import type {
 	LeadFieldConfig,
 	LeadFormValues,
 } from "../../config/leadFormConfig";
+import "./FieldRenderer.css";
 
 interface FieldRendererProps {
 	field: LeadFieldConfig;
@@ -77,6 +77,7 @@ export const FieldRenderer: React.FC<FieldRendererProps> = ({
 						onChange={handleChange}
 						onBlur={() => onBlur(field.name)}
 						maxLength={field.validations?.maxLength}
+						showCharacterCount
 					/>
 				);
 
@@ -86,6 +87,8 @@ export const FieldRenderer: React.FC<FieldRendererProps> = ({
 						id={field.name}
 						name={field.name}
 						checked={Boolean(value)}
+						label={field.label}
+						required={field.validations?.required}
 						onChange={handleCheckboxChange}
 						onBlur={() => onBlur(field.name)}
 					/>
@@ -97,13 +100,16 @@ export const FieldRenderer: React.FC<FieldRendererProps> = ({
 	};
 
 	return (
-		<Field
-			id={field.name}
-			label={field.label}
-			hint={field.hint}
-			error={error}
-			required={field.validations?.required}>
-			{renderControl()}
-		</Field>
+		<div className={field.colSpan === 2 ? "field-item col-span-2" : "field-item"}>
+			<Field
+				id={field.name}
+				label={field.type === "checkbox" ? undefined : field.label}
+				hint={field.hint}
+				error={error}
+				required={field.type === "checkbox" ? false : field.validations?.required}
+				optional={field.optional}>
+				{renderControl()}
+			</Field>
+		</div>
 	);
 };

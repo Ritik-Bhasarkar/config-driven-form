@@ -11,7 +11,6 @@ export const Button: React.FC<ButtonProps> = ({
 	isLoading = false,
 	disabled = false,
 	children,
-	className = "",
 	...rest
 }) => {
 	return (
@@ -19,7 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
 			{...rest}
 			type={rest.type ?? "button"}
 			disabled={disabled || isLoading}
-			className={`button button--${variant} ${className}`.trim()}>
+			className={`button button--${variant} `}>
 			{isLoading ? "Loading..." : children}
 		</button>
 	);

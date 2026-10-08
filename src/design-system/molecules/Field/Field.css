@@ -6,22 +6,40 @@
 }
 
 .field--label {
-	display: inline-block;
+	display: flex;
+	align-items: flex-start;
+	min-width: 0;
 	font-family: var(--font-family-base);
 	font-size: var(--font-size-sm);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--line-height-tight);
 	color: var(--color-text-primary);
+	overflow-wrap: anywhere;
 }
 
 .field--required {
+	flex: 0 0 auto;
 	margin-left: 4px;
 	color: var(--color-error);
 	font-weight: var(--font-weight-semibold);
 }
 
+.field--label-text {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.field--optional {
+	flex: 0 0 auto;
+	margin-left: auto;
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-xs);
+	font-weight: var(--font-weight-regular);
+}
+
 .field--control {
 	width: 100%;
+	min-width: 0;
 }
 
 .field--hint {
@@ -30,14 +48,15 @@
 	font-size: var(--font-size-xs);
 	line-height: var(--line-height-normal);
 	color: var(--color-text-secondary);
+	overflow-wrap: anywhere;
 }
 
 .field--error {
 	margin: 0;
 	font-family: var(--font-family-base);
-
+	font-size: var(--font-size-xs);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--line-height-normal);
 	color: var(--color-error);
-	overflow-wrap: break-word;
+	overflow-wrap: anywhere;
 }

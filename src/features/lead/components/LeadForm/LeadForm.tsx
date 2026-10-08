@@ -12,10 +12,9 @@ import {
 	validateLeadForm,
 } from "../../validation/validateLeads";
 
-import { FieldRenderer } from "../FieldRenderer";
-
 import { Button } from "@/design-system";
-
+import { FieldRenderer } from "../FieldRenderer";
+import "./FormCard.css";
 import "./LeadForm.css";
 
 export interface LeadFormProps {
@@ -32,7 +31,6 @@ export const LeadForm: React.FC<LeadFormProps> = ({ onSuccess }) => {
 	const [touched, setTouched] = useState<
 		Partial<Record<keyof LeadFormValues, boolean>>
 	>({});
-
 	const visibleFields = leadFormConfig.filter((field) =>
 		field.visibleWhen ? field.visibleWhen(values) : true,
 	);
@@ -48,7 +46,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({ onSuccess }) => {
 
 		setValues(updatedValues);
 
-		if (touched[name]) {
+		if (touched[name] || name === "notes") {
 			const field = leadFormConfig.find((field) => field.name === name);
 
 			if (field) {
@@ -121,27 +119,24 @@ export const LeadForm: React.FC<LeadFormProps> = ({ onSuccess }) => {
 			return;
 		}
 
-		console.log("Lead form submitted:", values);
-
 		onSuccess?.(values);
 	};
 
 	return (
-		<div className="formCard">
-			<header className="cardHeader">
-				<h1 className="cardTitle">Inquiry & Lead Capture</h1>
-
-				<p className="cardSubtitle">
+		<div className="form-card">
+			<header className="card-header">
+				<h1 className="card-title">Inquiry & Lead Capture</h1>
+				<p className="card-subtitle">
 					Please provide your details below. Fields marked with an
 					asterisk (*) are required.
 				</p>
 			</header>
 
 			<form
-				className="formBody"
+				className="form-body"
 				onSubmit={handleSubmit}
 				noValidate>
-				<div className="formGrid">
+				<div className="form-grid">
 					{visibleFields.map((field) => (
 						<FieldRenderer
 							key={field.name}
@@ -154,7 +149,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({ onSuccess }) => {
 					))}
 				</div>
 
-				<footer className="formActions">
+				<footer className="form-actions">
 					<Button
 						type="submit"
 						variant="primary">

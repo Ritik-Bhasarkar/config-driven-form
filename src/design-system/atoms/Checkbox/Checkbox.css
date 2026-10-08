@@ -1,85 +1,91 @@
-.checkboxWrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-2);
-  width: 100%;
-  cursor: pointer;
-  user-select: none;
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-sm);
-  color: var(--color-text-primary);
-  line-height: var(--line-height-normal);
+.checkbox-wrapper {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--space-2);
+	width: 100%;
+	cursor: pointer;
+	user-select: none;
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-sm);
+	color: var(--color-text-primary);
+	line-height: var(--line-height-normal);
 }
 
-.checkboxWrapper--disabled {
-  cursor: not-allowed;
-  opacity: 0.65;
+.checkbox-wrapper--disabled {
+	cursor: not-allowed;
+	opacity: 0.65;
 }
 
-.controlContainer {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: var(--checkbox-size);
-  height: var(--checkbox-size);
-  margin-top: 0.125rem;
+.control-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: var(--checkbox-size);
+	height: var(--checkbox-size);
+	margin-top: 0.125rem;
 }
 
-.nativeInput {
-  position: absolute;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  cursor: pointer;
-  z-index: 1;
+.native-input {
+	position: absolute;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	cursor: pointer;
+	z-index: 1;
 }
 
-.nativeInput:disabled {
-  cursor: not-allowed;
+.native-input:disabled {
+	cursor: not-allowed;
 }
 
-.customBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-surface);
-  border: 1.5px solid var(--color-border-default);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-  color: var(--color-text-inverse);
+.custom-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-surface);
+	border: 1.5px solid var(--color-border-default);
+	border-radius: var(--radius-sm);
+	transition: all var(--transition-fast);
+	color: var(--color-text-inverse);
 }
 
-.nativeInput:hover:not(:disabled) ~ .customBox {
-  border-color: var(--color-border-hover);
+.native-input:hover:not(:disabled) ~ .custom-box {
+	border-color: var(--color-border-hover);
 }
 
-.nativeInput:focus-visible ~ .customBox {
-  border-color: var(--color-border-focus);
-  box-shadow: 0 0 0 3px var(--color-primary-focus-ring);
+.native-input:focus-visible ~ .custom-box {
+	border-color: var(--color-border-focus);
+	box-shadow: 0 0 0 3px var(--color-primary-focus-ring);
 }
 
-.nativeInput:checked ~ .customBox {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+.native-input:checked ~ .custom-box {
+	background-color: var(--color-primary);
+	border-color: var(--color-primary);
 }
 
-.nativeInput:checked:focus-visible ~ .customBox {
-  box-shadow: 0 0 0 3px var(--color-primary-focus-ring);
+.native-input:checked:focus-visible ~ .custom-box {
+	box-shadow: 0 0 0 3px var(--color-primary-focus-ring);
 }
 
-.customBox--invalid {
-  border-color: var(--color-error);
+.custom-box--invalid {
+	border-color: var(--color-error);
 }
 
-.nativeInput:focus-visible ~ .customBox--invalid {
-  box-shadow: 0 0 0 3px var(--color-error-focus-ring);
+.native-input:focus-visible ~ .custom-box--invalid {
+	box-shadow: 0 0 0 3px var(--color-error-focus-ring);
 }
 
-.labelContent {
-  color: var(--color-text-primary);
+.label-content {
+	color: var(--color-text-primary);
+}
+
+.checkbox-required {
+	margin-left: 4px;
+	color: var(--color-error);
+	font-weight: var(--font-weight-semibold);
 }

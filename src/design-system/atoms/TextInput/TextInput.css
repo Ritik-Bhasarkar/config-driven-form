@@ -1,4 +1,4 @@
-.textInput {
+.text-input {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -15,30 +15,30 @@
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
 }
 
-.textInput::placeholder {
+.text-input::placeholder {
   color: var(--color-text-muted);
   opacity: 1;
 }
 
-.textInput:hover:not(:disabled) {
+.text-input:hover:not(:disabled) {
   border-color: var(--color-border-hover);
 }
 
-.textInput:focus {
+.text-input:focus {
   border-color: var(--color-border-focus);
   box-shadow: 0 0 0 3px var(--color-primary-focus-ring);
 }
 
-.textInput--invalid {
+.text-input--invalid {
   border-color: var(--color-error);
 }
 
-.textInput--invalid:focus {
+.text-input--invalid:focus {
   border-color: var(--color-error);
   box-shadow: 0 0 0 3px var(--color-error-focus-ring);
 }
 
-.textInput:disabled {
+.text-input:disabled {
   background-color: var(--color-surface-muted);
   color: var(--color-text-muted);
   cursor: not-allowed;

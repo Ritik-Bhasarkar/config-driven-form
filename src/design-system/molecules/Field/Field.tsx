@@ -14,6 +14,7 @@ export interface FieldProps {
 	hint?: string;
 	error?: string;
 	required?: boolean;
+	optional?: boolean;
 	children: React.ReactNode;
 }
 
@@ -23,6 +24,7 @@ export const Field: React.FC<FieldProps> = ({
 	hint,
 	error,
 	required = false,
+	optional = false,
 	children,
 }) => {
 	const hintId = hint ? `${id}-hint` : undefined;
@@ -31,7 +33,7 @@ export const Field: React.FC<FieldProps> = ({
 	const describedBy =
 		[hintId, errorId].filter(Boolean).join(" ") || undefined;
 
-	const control = React.isValidElement<FieldControlProps>(children)
+	const control = React.isValidElement<FieldControlProps>(children) // Clone the child element and add the field's props to it
 		? React.cloneElement(children, {
 				id: children.props.id ?? id,
 				"aria-describedby": describedBy,
@@ -46,7 +48,7 @@ export const Field: React.FC<FieldProps> = ({
 				<label
 					htmlFor={id}
 					className="field--label">
-					{label}
+					<span className="field--label-text">{label}</span>
 
 					{required && (
 						<span
@@ -54,6 +56,10 @@ export const Field: React.FC<FieldProps> = ({
 							aria-hidden="true">
 							*
 						</span>
+					)}
+
+					{optional && (
+						<span className="field--optional">(Optional)</span>
 					)}
 				</label>
 			)}

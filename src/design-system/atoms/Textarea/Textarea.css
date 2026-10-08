@@ -1,6 +1,6 @@
 .textarea {
 	display: block;
-  position: relative;
+	position: relative;
 	width: 100%;
 	box-sizing: border-box;
 	min-height: 5.5rem;
@@ -32,6 +32,10 @@
 	text-align: right;
 	font-size: var(--font-size-xs);
 	color: var(--color-text-secondary);
+}
+
+.textarea--counter-exceeded {
+	color: var(--color-error);
 }
 
 .textarea--invalid {
